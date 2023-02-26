@@ -3,5 +3,8 @@ import App from './App.vue'
 import router from './router'
 import "@/assets/scss/main.scss";
 import 'remixicon/fonts/remixicon.css'
+import vue3StarRatings from "vue3-star-ratings";
 
-createApp(App).use(router).mount('#app')
+const app = createApp(App)
+app.component("vue3-star-ratings", vue3StarRatings);
+app.use(router).mount('#app')

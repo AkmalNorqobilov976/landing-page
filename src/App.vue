@@ -44,6 +44,10 @@
     <section>
       <Proccess/>
     </section>
+    <Help/>
+    <ClientsOpition/>
+    <Download/>
+    <BlogPosts/>
   </div>
 </template>
 
@@ -51,6 +55,10 @@
 import { defineComponent } from 'vue';
 import Dropdown from './components/Dropdown.vue';
 import CircleCheckbox from './components/Form/checkbox/CircleCheckbox.vue';
+import BlogPosts from './components/parts/BlogPosts.vue';
+import ClientsOpition from './components/parts/ClientsOpition.vue';
+import Download from './components/parts/Download.vue';
+import Help from './components/parts/help.vue';
 import Proccess from './components/parts/proccess.vue';
 import Slider from './components/parts/slider.vue';
 export default defineComponent({
@@ -58,7 +66,11 @@ export default defineComponent({
     Dropdown,
     CircleCheckbox,
     Slider,
-    Proccess
+    Proccess,
+    Help,
+    ClientsOpition,
+    Download,
+    BlogPosts
 }
 
 })
@@ -147,6 +159,7 @@ export default defineComponent({
       background: white;
       box-shadow: 0px 4.35199px 134.912px rgba(0, 0, 0, 0.1);
       padding: 2rem;
+      margin-top: 2rem;
       div{
         display: flex;
         flex-direction: column;

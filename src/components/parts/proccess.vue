@@ -4,7 +4,7 @@
             <p class="proccess__head__title">Stockie Operation Across the world</p>
             <p class="proccess__head__info">We have best team and best process</p>
             <p class="proccess__head__subinfo">Yet bed any for travelling assistance indulgence unpleasing. Not thoughts all exercise blessing. Indulgence way everything joy.</p>
-            <button class="proccess__head__btn">Get Started</button>
+            <Button :bgColor="'#5D5FEF'" :color="'#fff'" :label="'Get Started'" circled/>
         </div>
         <div class="proccess__strategy">
             <strategy-card class="proccess__strategy--i1" :strategyStage="'1'"/>
@@ -16,12 +16,14 @@
 
 <script>
 import { defineComponent } from "vue";
+import Button from "./components/buttons/Button.vue";
 import StrategyCard from "./components/StrategyCard.vue";
 
 
 export default defineComponent({
     components: {
-        StrategyCard
+        StrategyCard,
+        Button
         
     }
 })
@@ -30,7 +32,7 @@ export default defineComponent({
 <style lang="scss" scoped>
     .proccess {
         padding: 10.4rem 12.5rem;
-        height: 63.5rem;
+        height: 73.5rem;
         background: url('@/assets/images/Strategy.png') 10.4rem 15rem no-repeat,
             url('@/assets/svgs/Ellipse\ 1909.svg') right 10rem no-repeat;
         
@@ -58,14 +60,7 @@ export default defineComponent({
                     margin-bottom: 2rem;
                 }
                 &__btn {
-                    background: #5D5FEF;
-                    border-radius: 4.7rem;
-                    color: white;
-                    font-size: 1.6rem;
-                    line-height: 3rem;
-                    padding: .9rem 3.8rem;
-                    border: none;
-                    outline: none;
+                   
                 }
             }
 
