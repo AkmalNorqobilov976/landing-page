@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container position-relative" id="app">
     <header>
       <nav class="navbar">
         <a class="navbar__title">AR Shakir</a>
@@ -48,6 +48,11 @@
     <ClientsOpition/>
     <Download/>
     <BlogPosts/>
+    <Register/>
+    <Footer/>
+    <button class="position-fixed scroll-up-btn" @click="$router.push({hash: '#app'})">
+      <i class="ri-arrow-up-line"></i>
+    </button>
   </div>
 </template>
 
@@ -60,7 +65,9 @@ import ClientsOpition from './components/parts/ClientsOpition.vue';
 import Download from './components/parts/Download.vue';
 import Help from './components/parts/help.vue';
 import Proccess from './components/parts/proccess.vue';
+import Register from './components/parts/Register.vue';
 import Slider from './components/parts/slider.vue';
+import Footer from './components/parts/Footer.vue';
 export default defineComponent({
   components: {
     Dropdown,
@@ -70,7 +77,9 @@ export default defineComponent({
     Help,
     ClientsOpition,
     Download,
-    BlogPosts
+    BlogPosts,
+    Register,
+    Footer
 }
 
 })
@@ -125,6 +134,11 @@ export default defineComponent({
     }
   }
   .header-body {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 90vh;
     height: 100vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -187,6 +201,46 @@ export default defineComponent({
         margin-top: 5.8rem;
         display: flex;
         gap: 2.6rem;
+      }
+    }
+  }
+
+  .scroll-up-btn {
+    border-radius: 50%;
+    display: flex;
+    border: none;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    top: 85vh;
+    right: 5vw;
+    font-size: 2rem;
+    padding: 2rem;
+    transition: all .5s ease;
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  @media screen and (max-width: 36rem) {
+    .navbar {
+      padding: 2rem;
+      &__links {
+        display: none;
+        flex-direction: column;
+      }
+    }
+
+    .header-body {
+      grid-template-columns: 1fr;
+      &__info {
+        &--title {
+          padding: 1rem;
+        }
+
+        &--subtitle {
+          font-size: 4rem;
+        }
       }
     }
   }

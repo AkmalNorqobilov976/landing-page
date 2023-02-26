@@ -17,5 +17,24 @@ html {
 
 .container {
     width: 144rem;
+    overflow: hidden;
     margin: auto;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-fixed {
+    position: fixed;
+}
+
+
+@media screen and (max-width: 36rem) {
+    html {
+        font-size: 6px;
+    }
+    .container {
+        width: 100vw;
+    }
 }
