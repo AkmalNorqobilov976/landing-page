@@ -147,4 +147,23 @@ import 'swiper/swiper-bundle.css'
             }
         }
     }
+
+    @media screen and (max-width: 36rem) {
+        .clients-opinion {
+            padding: 2rem;
+            &__swiper-slide {
+                flex-direction: column;
+                gap: 0rem;
+                &__img {
+                    &::before {
+                        top: 13rem;
+                    }
+
+                    &::after {
+                        bottom: 11rem;
+                    }
+                }
+            }
+        }
+    }
 </style>

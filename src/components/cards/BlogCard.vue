@@ -17,8 +17,7 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
     props: {
-        imageUrl: {   
-        },
+        imageUrl: {},
         time: {
             type: String
         },
@@ -31,8 +30,11 @@ export default defineComponent({
 
 <style lang="scss" scoped>
     .blog-card {
-        object-fit: contain;
-        width: 100%;
+        img {
+            object-fit: contain;
+            width: 100%;
+
+        }
         &__time-category {
             margin-top: 1.4rem;
             margin-bottom: 1.1rem;

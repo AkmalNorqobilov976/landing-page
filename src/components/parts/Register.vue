@@ -23,11 +23,6 @@
   </div>
 </template>
 
-<script>
-export default {
-
-}
-</script>
 
 <style lang="scss" scoped>
     .register {
@@ -101,6 +96,15 @@ export default {
                 border: none;
                 outline: none;
             }
+        }
+    }
+
+    @media screen and (max-width: 36rem) {
+        .register {
+            padding: 2rem;
+            display: flex;
+            gap: 4rem;
+            flex-direction: column;
         }
     }
 </style>

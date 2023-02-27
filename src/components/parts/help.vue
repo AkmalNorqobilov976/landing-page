@@ -229,7 +229,12 @@ export default defineComponent({
             &__img {
                 background: #E9ECF2;
                 border-radius: .5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 padding: 1.5rem;
+                aspect-ratio: 1/1;
+                width: 8rem;
             }
             &__title {
                 font-size: 2rem;
@@ -279,6 +284,43 @@ export default defineComponent({
                 background: #5D5FEF;
                 border-radius: 1rem;
             }
+        }
+    }
+
+    @media screen and (max-width: 36rem) {
+        .help__header {
+            margin: 2rem;
+            padding: 2rem;
+        }
+        .help__section {
+            &__article {
+                padding: 0 2rem;
+            }
+        }
+
+        .help__cards {
+            flex-direction: column;
+            padding: 0 2rem;
+            box-shadow: 0 0 2px rgb(170, 170, 189);
+            padding-bottom: 4rem;
+        }
+
+        .help__advantages {
+            margin: 1rem;
+            padding: 1;
+            flex-direction: column;
+            align-items: self-start;
+            &--advantage {
+                display: grid;
+                // justify-content: space-between;
+                grid-template-columns: 1fr 3fr;
+                align-items: center;
+            }
+        }
+
+        .help__two-cards {
+            margin: 0 2rem;
+            flex-direction: column;
         }
     }
 </style>

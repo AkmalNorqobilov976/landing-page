@@ -65,4 +65,10 @@ import Button from "./components/buttons/Button.vue";
             gap: 1.1rem;
         }
     }
+
+    @media screen and (max-width: 36rem) {
+        .download {
+            padding: 1rem 2rem;
+        }
+    }
 </style>

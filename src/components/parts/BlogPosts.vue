@@ -121,4 +121,14 @@ import BlogList from "../Lists/BlogList.vue";
         }
     }
 }
+
+@media screen and (max-width: 36rem) {
+    .blog-post {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5rem;
+        padding: 0 2rem;
+        
+    }
+}
 </style>

@@ -8,8 +8,19 @@
                 <div class="footer-item__subtitle">
                     Simple innate summer fat appear basket his desire joy.
                 </div>
-                <div class="footer_item__messengers">
-
+                <div class="footer-item__messengers">
+                    <div>
+                        <img :src="require('@/assets/svgs/linkedin.svg')" alt=""/>
+                    </div>
+                    <div>
+                        <img :src="require('@/assets/svgs/messenger.svg')" alt=""/>
+                    </div>
+                    <div>
+                        <img :src="require('@/assets/svgs/twitter.svg')" alt=""/>
+                    </div>
+                    <div>
+                        <img :src="require('@/assets/svgs/twoo.svg')" alt=""/>
+                    </div>
                 </div>
             </div>
             <div class="footer-item">
@@ -89,6 +100,7 @@
         flex: 1 1 auto;
         display: flex;
         flex-direction: column;
+        
         &__title {
             font-weight: 700;
             font-size: 2.1rem;
@@ -102,6 +114,11 @@
             letter-spacing: -0.02em;
             color: #181433;
             opacity: 0.5;
+        }
+        &__messengers {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1.6rem;
         }
         ul {
             list-style: none;
@@ -155,6 +172,25 @@
         letter-spacing: -0.02em;
 
         color: #181433;
+    }
+ }
+
+ @media screen and (max-width: 36rem) {
+    .footer {
+        gap: 3rem;
+        padding: 2rem;
+        margin: 0;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        &-item {
+            &__messengers {
+                justify-content: center;
+            }
+        }
+        &-copyright {
+            padding: 2rem;
+        }
     }
  }
 </style>

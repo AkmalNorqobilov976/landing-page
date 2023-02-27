@@ -233,6 +233,8 @@ export default defineComponent({
 
     .header-body {
       grid-template-columns: 1fr;
+      padding: 2rem;
+      text-align: center;
       &__info {
         &--title {
           padding: 1rem;
@@ -240,6 +242,18 @@ export default defineComponent({
 
         &--subtitle {
           font-size: 4rem;
+        }
+        &--subinfo {
+          padding-right: 4rem;
+          padding-left: 4rem;
+        }
+      }
+      &__form {
+        label {
+          text-align: left;
+        }
+        button {
+          padding: 1rem 4rem;
         }
       }
     }

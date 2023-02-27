@@ -47,7 +47,8 @@ export default defineComponent({
                 }
                 &__info {
                     font-weight: 800;
-                    font-size: 40px;
+                    font-size: 4rem;
+                position: relative;
                     letter-spacing: -0.03em;
                     margin-bottom: .6rem;
                 }
@@ -59,9 +60,7 @@ export default defineComponent({
                     color: #64607D;
                     margin-bottom: 2rem;
                 }
-                &__btn {
-                   
-                }
+              
             }
 
             &__strategy {
@@ -86,5 +85,25 @@ export default defineComponent({
                     right: 0rem;
                 }
             }
+    }
+
+    @media screen and (max-width: 36rem) {
+        .proccess {
+            padding: 2rem;
+            height: auto;
+            background: url('@/assets/svgs/Ellipse\ 1909.svg') right 0 no-repeat;
+            &__head {
+                text-align: center;
+                width: auto;
+            }
+            
+            &__strategy {
+                & > * {
+                    margin: auto;
+                    position: initial;
+                    width: 28rem;
+                }
+            }
+        }
     }
 </style>

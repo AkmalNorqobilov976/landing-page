@@ -60,5 +60,16 @@ import { defineComponent } from "vue";
         
     }
 
+    @media screen and (max-width: 36rem) {
+        .strategy-card {
+            position: initial;
+            &__stage {
+                position: initial !important;
+                opacity: .5;
+                margin-left: 3rem;
+            }
+        }
+    }
+
     
 </style>
