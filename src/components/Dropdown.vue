@@ -40,6 +40,7 @@ import { defineComponent, ref } from 'vue'
 .dropdown {
     display: inline-block;
     position: relative;
+    transition: all .5s ease;
     cursor: pointer;
     &__head {
         display: flex;
@@ -51,8 +52,8 @@ import { defineComponent, ref } from 'vue'
 
         position: absolute;
         border-radius: .8rem;
-        padding: 1rem;
-        background: rgb(222, 216, 216);
+        padding: 2rem;
+        background: rgba($color: rgb(222, 216, 216), $alpha: .2);
         list-style: none;
         left: 0;
         display: flex;
@@ -63,6 +64,14 @@ import { defineComponent, ref } from 'vue'
             color: white;
 
             transform: scale(1.2);
+        }
+    }
+}
+
+@media screen and (max-width: 36rem) {
+    .dropdown {
+        &__lists {
+            position: relative;
         }
     }
 }
