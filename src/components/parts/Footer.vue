@@ -1,84 +1,92 @@
 <template>
     <footer>
         <div class="footer">
-            <div class="footer-item">
-                <div class="footer-item__title">
-                    AR Shakir
-                </div>
-                <div class="footer-item__subtitle">
-                    Simple innate summer fat appear basket his desire joy.
-                </div>
-                <div class="footer-item__messengers">
-                    <div>
-                        <img :src="require('@/assets/svgs/linkedin.svg')" alt=""/>
+            <Waypoint @change="onChangeFirstRef">
+                <div ref="firstRef" class="footer-item">
+                    <div class="footer-item__title">
+                        AR Shakir
                     </div>
-                    <div>
-                        <img :src="require('@/assets/svgs/messenger.svg')" alt=""/>
+                    <div class="footer-item__subtitle">
+                        Simple innate summer fat appear basket his desire joy.
                     </div>
-                    <div>
-                        <img :src="require('@/assets/svgs/twitter.svg')" alt=""/>
+                    <div class="footer-item__messengers">
+                        <div>
+                            <img :src="require('@/assets/svgs/linkedin.svg')" alt=""/>
+                        </div>
+                        <div>
+                            <img :src="require('@/assets/svgs/messenger.svg')" alt=""/>
+                        </div>
+                        <div>
+                            <img :src="require('@/assets/svgs/twitter.svg')" alt=""/>
+                        </div>
+                        <div>
+                            <img :src="require('@/assets/svgs/twoo.svg')" alt=""/>
+                        </div>
                     </div>
-                    <div>
-                        <img :src="require('@/assets/svgs/twoo.svg')" alt=""/>
+                </div>
+            </Waypoint>
+            <Waypoint @change="onChangeSecondRef">
+                <div ref="secondRef" class="footer-item">
+                    <div class="footer-item__title">
+                        Company
+                    </div>
+                    <ul class="footer_item__lists">
+                        <li>
+                            About Us
+                        </li>
+                        <li>
+                            Career
+                        </li>
+                        <li>
+                            Blog
+                        </li>
+                        <li>
+                            Career
+                        </li>
+                        <li>
+                            Pricing
+                        </li>
+                    </ul>
+                </div>
+            </Waypoint>
+            <Waypoint @change="onChangeThirdRef">
+                <div ref="thirdRef" class="footer-item">
+                    <div class="footer-item__title">
+                        Resources
+                    </div>
+                    <ul class="footer_item__lists">
+                        <li>
+                            Templates
+                        </li>
+                        <li>
+                            Tutorials
+                        </li>
+                        <li>
+                            Free Resources
+                        </li>
+                        <li>
+                            Contract Templates
+                        </li>
+                    </ul>
+                </div>
+            </Waypoint>
+            <Waypoint @change="onChangeFourthRef">
+                <div ref="fourthRef" class="footer-item">
+                    <div class="footer-item__title">
+                        Join Our Newsletter
+                    </div>
+                    <div class="footer_item__form">
+                        <form>
+                            <input type="email" placeholder="Your Email Address">
+                            <button>Subscribe</button>
+                        </form>
+                    </div>
+                    <div class="footer-item__subtitle">
+                        *  Will send you weekly updates for your better
+                        finance management.
                     </div>
                 </div>
-            </div>
-            <div class="footer-item">
-                <div class="footer-item__title">
-                    Company
-                </div>
-                <ul class="footer_item__lists">
-                    <li>
-                        About Us
-                    </li>
-                    <li>
-                        Career
-                    </li>
-                    <li>
-                        Blog
-                    </li>
-                    <li>
-                        Career
-                    </li>
-                    <li>
-                        Pricing
-                    </li>
-                </ul>
-            </div>
-            <div class="footer-item">
-                <div class="footer-item__title">
-                    Resources
-                </div>
-                <ul class="footer_item__lists">
-                    <li>
-                        Templates
-                    </li>
-                    <li>
-                        Tutorials
-                    </li>
-                    <li>
-                        Free Resources
-                    </li>
-                    <li>
-                        Contract Templates
-                    </li>
-                </ul>
-            </div>
-            <div class="footer-item">
-                <div class="footer-item__title">
-                    Join Our Newsletter
-                </div>
-                <div class="footer_item__form">
-                    <form>
-                        <input type="email" placeholder="Your Email Address">
-                        <button>Subscribe</button>
-                    </form>
-                </div>
-                <div class="footer-item__subtitle">
-                    *  Will send you weekly updates for your better
-                    finance management.
-                </div>
-            </div>
+            </Waypoint>
         </div>
         <p class="footer-copyright">
             Copyright @ AR Shakir 2022. All Rights Reserved.
@@ -86,6 +94,74 @@
     </footer>
 </template>
 
+<script lang="ts">
+import { ref, Ref } from 'vue'
+import anime from 'animejs';
+export default {
+    setup() {
+        const firstRef: Ref = ref<HTMLElement>();
+        const secondRef: Ref = ref<HTMLElement>();
+        const thirdRef: Ref = ref<HTMLElement>();
+        const fourthRef: Ref = ref<HTMLElement>();
+        
+        const onChangeFirstRef = () => {
+
+            anime({
+                targets: firstRef.value.children,
+                opacity: [0, 1],
+                translateX: [-60, 0],
+                delay: anime.stagger(100)
+            })
+        }
+
+        const onChangeSecondRef = () => {
+
+            anime({
+                targets: secondRef.value.children,
+                opacity: [0, 1],
+                translateX: [-60, 0],
+                delay: anime.stagger(100)
+            })
+        }
+        const onChangeThirdRef = () => {
+
+            anime({
+                targets: thirdRef.value.children,
+                opacity: [0, 1],
+                translateX: [-60, 0],
+                delay: anime.stagger(100)
+            })
+        }
+        const onChangeFourthRef = () => {
+
+            anime({
+                targets: fourthRef.value.children,
+                opacity: [0, 1],
+                translateX: [-60, 0],
+                delay: anime.stagger(100)
+            });
+
+            anime({
+                targets: '.footer-copyright',
+                opacity: [0, 1],
+                translateY: [100, 0],
+            })
+        }
+
+        return {
+            firstRef,
+            secondRef,
+            thirdRef,
+            fourthRef,
+            onChangeFirstRef,
+            onChangeSecondRef,
+            onChangeThirdRef,
+            onChangeFourthRef,
+        }
+    }
+}    
+
+</script>
 
 <style lang="scss" scoped>
  .footer {

@@ -1,66 +1,86 @@
 <template>
-    <div class="slider">
-        <p class="slider__title">Over 32k+ software  businesses growing with AR Shakir</p>
-        <swiper
-            :breakpoints="{       
-                360: {       
-                    slidesPerView: 1.5,
-                    spaceBetween: 10     
-                },          
-                770: {       
-                    slidesPerView: 2,       
-                    spaceBetween: 50     
-                },   
-            
-                771: {       
-                    slidesPerView: 4,       
-                    spaceBetween: 30     
-                } 
-            }"
-            :slides-per-view="5"
-            :space-between="50"
+    <Waypoint @change="onChangeWaypoint">
+        <div class="slider">
+            <p class="slider__title">Over 32k+ software  businesses growing with AR Shakir</p>
+            <swiper
+                :breakpoints="{       
+                    360: {       
+                        slidesPerView: 1.5,
+                        spaceBetween: 10     
+                    },          
+                    770: {       
+                        slidesPerView: 2,       
+                        spaceBetween: 50     
+                    },   
+                
+                    771: {       
+                        slidesPerView: 4,       
+                        spaceBetween: 30     
+                    } 
+                }"
+                :slides-per-view="5"
+                :space-between="50"
+                class="slider__swiper"
             >
-            <!-- @swiper="onSwiper"
-            @slideChange="onSlideChange" -->
-            <swiper-slide>
-            <img :src="require('@/assets/images/OpenZeppelin.png')" alt="No Image">
-            </swiper-slide>
-            <swiper-slide>
-            <img :src="require('@/assets/images/Oracle.png')" alt="No Image">
-            </swiper-slide>
-            <swiper-slide>
-                <img :src="require('@/assets/images/Samsung.png')" alt="No Image">
-            </swiper-slide>
-            <swiper-slide>
-                <img :src="require('@/assets/images/Morpheus.png')" alt="No Image">
-            </swiper-slide>
-            <swiper-slide>
-                <img :src="require('@/assets/images/Monday.png')" alt="No Image">
-            </swiper-slide>
-            <swiper-slide>
-                <img :src="require('@/assets/images/Segment.png')" alt="No Image">
-            </swiper-slide>
-            <swiper-slide>
-                <img :src="require('@/assets/images/Protonet.png')" alt="No Image">
-            </swiper-slide>
-        </swiper>
-    </div>
+                <swiper-slide>
+                <img :src="require('@/assets/images/OpenZeppelin.png')" alt="No Image">
+                </swiper-slide>
+                <swiper-slide>
+                <img :src="require('@/assets/images/Oracle.png')" alt="No Image">
+                </swiper-slide>
+                <swiper-slide>
+                    <img :src="require('@/assets/images/Samsung.png')" alt="No Image">
+                </swiper-slide>
+                <swiper-slide>
+                    <img :src="require('@/assets/images/Morpheus.png')" alt="No Image">
+                </swiper-slide>
+                <swiper-slide>
+                    <img :src="require('@/assets/images/Monday.png')" alt="No Image">
+                </swiper-slide>
+                <swiper-slide>
+                    <img :src="require('@/assets/images/Segment.png')" alt="No Image">
+                </swiper-slide>
+                <swiper-slide>
+                    <img :src="require('@/assets/images/Protonet.png')" alt="No Image">
+                </swiper-slide>
+            </swiper>
+        </div>
+    </Waypoint>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-// import Swiper core and required components
+import { defineComponent } from "vue"
+import { Swiper, SwiperSlide } from "swiper/vue"
+import anime from 'animejs'
 
-// Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from "swiper/vue";
-
-// Import Swiper styles
 import 'swiper/swiper-bundle.css'
 
 export default defineComponent({
     components: {
         Swiper,
         SwiperSlide
+    },
+    setup() {
+        const onChangeWaypoint = () => {
+            const tl = anime.timeline();
+            tl.add({
+                targets: '.slider__title',
+                rotate: [90, 0],
+                opacity: 1,
+                translateX: [-100, 0],
+                translateY: [-100, 0]
+            })
+            .add({
+                targets: '.slider__swiper',
+                opacity: [0, 1],
+                transformOrigin: '100% 100% 0',
+                rotate: [-90, 0]
+            })
+        }
+
+        return {
+            onChangeWaypoint
+        }
     }
 })
 </script>

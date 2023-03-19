@@ -1,29 +1,33 @@
 <template>
     <div class="clients-opinion">
         <p class="clients-opinion__title">Testimonials</p>
-        <p class="clients-opinion__subtitle">Check what our clients are saying</p>
+        <p class="clients-opinion__subtitle" style="-webkit-box-reflect: below -1rem linear-gradient(transparent, #0004);">Check what our clients are saying</p>
         <div>
             <Swiper pagination>
                 <SwiperSlide>
                     <div class="clients-opinion__swiper-slide">
                         <div class="clients-opinion__swiper-slide__img">
-                            <img :src="require('@/assets/images/client1.png')" alt="">
+                                <Waypoint @change="onChangeImageWaypoint">
+                                    <img :src="require('@/assets/images/client1.png')" alt="">
+                                </Waypoint>
                         </div>
-                        <div class="clients-opinion__swiper-slide__body">
-                            <span>
-                                <vue3-star-ratings :step="1" v-model="rating" :showControl="false" />
-                            </span>
-                            <article class="clients-opinion__swiper-slide__body__text">
-                                Is be upon sang fond must shew. Really boy law county she unable her sister. Feet you off its like like six. Among sex are leave law built now.
-                            </article>
-                            <div class="clients-opinion__swiper-slide__body__actions">
-                                <div class="investor">
-                                    <p>AR Shakir</p>
-                                    <p>CEO GetNextDesign</p>
+                        <Waypoint @change="onChangeSliderWaypoint">
+                            <div class="clients-opinion__swiper-slide__body">
+                                <span class="star">
+                                    <vue3-star-ratings :step="1" v-model="rating" :showControl="false" />
+                                </span>
+                                <article class="clients-opinion__swiper-slide__body__text" ref="articleRef">
+                                    Is be upon sang fond must shew. Really boy law county she unable her sister. Feet you off its like like six. Among sex are leave law built now.
+                                </article>
+                                <div class="clients-opinion__swiper-slide__body__actions">
+                                    <div class="investor">
+                                        <p>AR Shakir</p>
+                                        <p>CEO GetNextDesign</p>
+                                    </div>
+                                    <div class="investor"><img :src="require('@/assets/images/Segment.png')" alt=""></div>
                                 </div>
-                                <div class="investor"><img :src="require('@/assets/images/Segment.png')" alt=""></div>
                             </div>
-                        </div>
+                        </Waypoint>
                     </div>
                 </SwiperSlide>
             </Swiper>
@@ -31,11 +35,12 @@
     </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, Ref, ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
 // Import Swiper styles
 import 'swiper/swiper-bundle.css'
+import anime from "animejs";
 
     export default defineComponent({
         components: {
@@ -43,10 +48,64 @@ import 'swiper/swiper-bundle.css'
             SwiperSlide
         },
         setup() {
-            const rating = ref("")
+            const rating = ref("");
+            const articleRef:Ref = ref<HTMLElement>()!;
+            const onChangeImageWaypoint = () => {
+                anime({
+                    targets: '.clients-opinion__swiper-slide__img',
+                    translateX: [-100, 0],
+                    opacity: [0, 1]
+                });
 
+                anime({
+                    targets: '.clients-opinion__title',
+                    translateX: [-100, 0],
+                    opacity: [0, 1]
+                })
+
+                anime({
+                    targets: '.clients-opinion__subtitle',
+                    translateX: [100, 0],
+                    opacity: [0, 1]
+                })
+
+            }
+
+            const onChangeSliderWaypoint = () => {
+                anime({
+                    targets: '.star',
+                    opacity: [0, 1],
+                    rotate: [360, 6],
+                    scale: [0, 1]
+                });
+
+                anime({
+                    targets: '.clients-opinion__swiper-slide__body__text',
+                });
+
+                (articleRef.value as HTMLElement).innerHTML = articleRef.value?.textContent?.replace(/\S/g, "<span>$&</span>")
+                
+                const tl = anime.timeline({
+                });
+
+                tl.add({
+                    targets: articleRef.value.children,
+                    opacity: [0, 1],
+                    translateX: [-60, 0],
+                    delay: anime.stagger(50)
+                })
+                anime({
+                    targets: '.investor',
+                    opacity: [0, 1],
+                    scale: [10, 1]
+                })
+            }
             return {
-                rating
+                rating,
+                articleRef,
+                onChangeImageWaypoint,
+                onChangeSliderWaypoint
+
             }
         }
     })
@@ -118,6 +177,7 @@ import 'swiper/swiper-bundle.css'
                     font-weight: 700;
                     width: 100%;
                     font-size: 3rem;
+                    text-align: center;
                     // line-height: 4.1rem;
                     // letter-spacing: -0.02em;
                     color: #1B1C31;

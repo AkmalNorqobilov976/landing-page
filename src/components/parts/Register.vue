@@ -1,28 +1,68 @@
 <template>
   <div class="register">
-    <div class="register-info">
-        <p class="register-info__title">Why Choose Us</p>
-        <p class="register-info__subtitle">Track your crytpo portfolio on the
-            best way possible
-        </p>
-        <p class="register-info__subinfo">
-            Mean if he they been no hold mr. Is at much do made. Latter person am secure of estate genius at.
-        </p>
-    </div>
+    <Waypoint @change="onRegisterInfoChange">
+        <div ref="registerInfoRef" class="register-info">
+            <p class="register-info__title">Why Choose Us</p>
+            <p class="register-info__subtitle">Track your crytpo portfolio on the
+                best way possible
+            </p>
+            <p class="register-info__subinfo">
+                Mean if he they been no hold mr. Is at much do made. Latter person am secure of estate genius at.
+            </p>
+        </div>
+    </Waypoint>
     <div >
-       <form class="register-form">
-            <div class="register-form__input register-form__input--email">
-                <input type="email" placeholder="Email Address"/>
-            </div>
-            <div class="register-form__input register-form__input--password">
-                <input type="password" placeholder="Password"/>
-            </div>
-            <button>Get Started</button>
-       </form>
+        <Waypoint @change="onRegisterFormChange">
+            <form ref="registerFormRef" class="register-form">
+                 <div class="register-form__input register-form__input--email">
+                     <input type="email" placeholder="Email Address"/>
+                 </div>
+                 <div class="register-form__input register-form__input--password">
+                     <input type="password" placeholder="Password"/>
+                 </div>
+                 <button>Get Started</button>
+            </form>
+        </Waypoint>
     </div>
   </div>
 </template>
 
+<script lang="ts">
+import { ref, Ref } from 'vue'
+import anime from 'animejs';
+export default {
+    setup() {
+
+        const registerFormRef: Ref = ref<HTMLElement>();
+            const registerInfoRef: Ref = ref<HTMLElement>();
+        const onRegisterInfoChange = () => {
+
+                anime({
+                    targets: registerInfoRef.value.children,
+                    opacity: [0, 1],
+                    translateX: [-60, 0],
+                    delay: anime.stagger(100)
+                })
+        }
+
+        const onRegisterFormChange = () => {
+
+            anime({
+                targets: registerFormRef.value.children,
+                opacity: [0, 1],
+                translateX: [-60, 0],
+                delay: anime.stagger(100)
+            })
+        }
+        return {
+            onRegisterInfoChange,
+            onRegisterFormChange,
+            registerInfoRef,
+            registerFormRef
+        }
+    }
+}
+</script>
 
 <style lang="scss" scoped>
     .register {

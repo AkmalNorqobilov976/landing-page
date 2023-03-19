@@ -1,105 +1,187 @@
 <template>
-    <section class="help">
-        <header class="help__header">
-            <img class="help__header__bg-img" :src="require('@/assets/images/greeting.png')" alt="No Image">
-            <p class="help__header__p">
-                Push your product to next level.
-            </p>
-            <article class="help__header__article">
-                End-to-end payments and financial management in a single solution. Meet the right platform to help realize.
-            </article>
-            <Button :label="'Get Started'" :bg-color="'#FF7F5C'" :color="'#fff'" circled/>
-        </header>
-        <main>
-            <section class="help__section">
-                <p class="help__section__title">We help your business grow faster.</p>
-                <article class="help__section__article">
-                    Why kept very ever home mrs. Considered sympathize ten uncommonly occasional assistance sufficient.
+    <Waypoint @change="onChangeWaypoint">
+        <section class="help">
+            <header class="help__header">
+                <img class="help__header__bg-img" :src="require('@/assets/images/greeting.png')" alt="No Image">
+                <p class="help__header__p">
+                    Push your product to next level.
+                </p>
+                <article class="help__header__article">
+                    End-to-end payments and financial management in a single solution. Meet the right platform to help realize.
                 </article>
-            </section>
+                <Button class="btn" :label="'Get Started'" :bg-color="'#FF7F5C'" :color="'#fff'" circled/>
+            </header>
+            <main>
+                <section class="help__section">
+                    <p class="help__section__title">We help your business grow faster.</p>
+                    <article class="help__section__article">
+                        Why kept very ever home mrs. Considered sympathize ten uncommonly occasional assistance sufficient.
+                    </article>
+                </section>
 
-            <section >
-                <div class="help__cards">
+                <section >
+                    <div class="help__cards">
 
-                        <Card :title="'Offending belonging'" :article="'Letter of on become he tended active enable to. Vicinity relation sensible sociable surprise screened no up as.'"/>
+                            <Card class="help__cards--1" :title="'Offending belonging'" :article="'Letter of on become he tended active enable to. Vicinity relation sensible sociable surprise screened no up as.'"/>
+                            <Card 
+                            class="help__cards--2"
+                                :title="'Promotion & provision'" 
+                                :article="'Led ask possible mistress relation elegance eat likewise debating. By message or am nothing amongst chiefly address.'"
+                            >
+                            <template #icon>
+                                <!-- Sun.svg -->
+                                <img :src="require('@/assets/svgs/Flower.svg')" alt="No Image">
+                            </template>
+                        </Card>
                         <Card 
-                            :title="'Promotion & provision'" 
-                            :article="'Led ask possible mistress relation elegance eat likewise debating. By message or am nothing amongst chiefly address.'"
-                        >
-                        <template #icon>
-                            <!-- Sun.svg -->
-                            <img :src="require('@/assets/svgs/Flower.svg')" alt="No Image">
-                        </template>
-                    </Card>
-                    <Card 
-                        :title="'Blessing application'" 
-                        :article="'Ham windows sixteen who inquiry fortune demands. Is be upon sang fond must shew. Really boy law county she unable her sister.'"
-                    > 
-                        <template #icon>
-                            <!-- Sun.svg -->
-                            <img :src="require('@/assets/svgs/Sun.svg')" alt="No Image">
-                        </template>
-                    </Card>
-                </div>
-                <button class="help__btn-more">More About Platform</button>
-            </section>
-            <section class="help__advantages">
-                <div class="help__advantages--dialog">Among leave law built now.</div>
-                <div class="help__advantages--advantage">
-                    <div class="help__advantages--advantage__img">
-                        <img :src="require('@/assets/svgs/Star.svg')" alt="">
+                        class="help__cards--3"
+                            :title="'Blessing application'" 
+                            :article="'Ham windows sixteen who inquiry fortune demands. Is be upon sang fond must shew. Really boy law county she unable her sister.'"
+                        > 
+                            <template #icon>
+                                <!-- Sun.svg -->
+                                <img :src="require('@/assets/svgs/Sun.svg')" alt="No Image">
+                            </template>
+                        </Card>
                     </div>
-                    <p class="help__advantages--advantage__title">
-                        Village did remov enjoyed
-                    </p>
-                </div>
-                <div class="help__advantages--advantage">
-                    <div class="help__advantages--advantage__img">
-                        <img :src="require('@/assets/svgs/Sertificate.svg')" alt="">
+                    <button class="help__btn-more">More About Platform</button>
+                </section>
+                <section class="help__advantages">
+                    <div class="help__advantages--dialog">Among leave law built now.</div>
+                    <div class="help__advantages--advantage">
+                        <div class="help__advantages--advantage__img">
+                            <img :src="require('@/assets/svgs/Star.svg')" alt="">
+                        </div>
+                        <p class="help__advantages--advantage__title">
+                            Village did remov enjoyed
+                        </p>
                     </div>
-                    <p class="help__advantages--advantage__title">
-                        Nay likely  length sooner
-                    </p>
-                </div>
-                <div class="help__advantages--advantage">
-                    <div class="help__advantages--advantage__img">
-                        <img :src="require('@/assets/svgs/Lamp.svg')" alt="">
+                    <div class="help__advantages--advantage">
+                        <div class="help__advantages--advantage__img">
+                            <img :src="require('@/assets/svgs/Sertificate.svg')" alt="">
+                        </div>
+                        <p class="help__advantages--advantage__title">
+                            Nay likely  length sooner
+                        </p>
                     </div>
-                    <p class="help__advantages--advantage__title">
-                        Expense windows adapted 
-                    </p>
-                </div>
-            </section>
-            <section class="help__two-cards">
-                <div class="help__two-cards__card">
-                    <p class="help__two-cards__card--title">Offend belong promote provision</p>
-                    <article class="help__two-cards__card--subtitle">
-                        Wise busy past both park when an ye no. Nay likely her length sooner thrown sex lively income. 
-                    </article>
-                    <button class="help__two-cards__card__btn">Read More</button>
-                </div>
-                <div class="help__two-cards__card">
-                    <p class="help__two-cards__card--title">Consulted ourselves it blessing welcom</p>
-                    <article class="help__two-cards__card--subtitle">
-                        The expense windows adapted sir. Wrong widen drawn ample eat off doors money.
-                    </article>
-                    <button class="help__two-cards__card__btn">Read More</button>
-                </div>
-            </section>
-        </main>
-    </section>
+                    <div class="help__advantages--advantage">
+                        <div class="help__advantages--advantage__img">
+                            <img :src="require('@/assets/svgs/Lamp.svg')" alt="">
+                        </div>
+                        <p class="help__advantages--advantage__title">
+                            Expense windows adapted 
+                        </p>
+                    </div>
+                </section>
+                <section class="help__two-cards">
+                    <div class="help__two-cards__card">
+                        <p class="help__two-cards__card--title">Offend belong promote provision</p>
+                        <article class="help__two-cards__card--subtitle">
+                            Wise busy past both park when an ye no. Nay likely her length sooner thrown sex lively income. 
+                        </article>
+                        <button class="help__two-cards__card__btn">Read More</button>
+                    </div>
+                    <div class="help__two-cards__card">
+                        <p class="help__two-cards__card--title">Consulted ourselves it blessing welcom</p>
+                        <article class="help__two-cards__card--subtitle">
+                            The expense windows adapted sir. Wrong widen drawn ample eat off doors money.
+                        </article>
+                        <button class="help__two-cards__card__btn">Read More</button>
+                    </div>
+                </section>
+            </main>
+        </section>
+    </Waypoint>
 </template>
 
 <script lang="ts">
+import anime from "animejs";
 import { defineComponent } from "vue";
 import Card from "../cards/Card.vue";
 import Button from "./components/buttons/Button.vue";
 
 export default defineComponent({
     components: {
-    Button,
-    Card
-}
+        Button,
+        Card
+    },
+    setup() {
+        const onChangeWaypoint = () => {
+            const tl = anime.timeline({
+                duration: 400
+            });
+            tl.add({
+                targets: '.help__header__bg-img',
+                scale: [0, 1.5, 1],
+                opacity: [0, 1]
+            }).add({
+                targets: '.help__header__p',
+                opacity: [0, 1],
+                translateY: [-50, 0]
+            }).add({
+                targets: '.help__header__article',
+                opacity: [0, 1],
+                translateY: [50, 0]
+            }).add({
+                targets: '.btn',
+                translateY: [50, 0],
+                scale: [0, 1.3, 1],
+                opacity: [0, 1]
+            })
+            .add({
+                targets: '.help__section__title',
+                translateX: [100, 0],
+                opacity: [0, 1]
+            })
+            .add({
+                targets: '.help__section__article',
+                translateX: [100, 0],
+                opacity: [0, 1]
+            })
+            .add({
+                targets: '.help__cards--1',
+                translateY: [100, 0],
+                opacity: [0, 1]
+            })
+            .add({
+                targets: '.help__cards--2',
+                translateY: [100, 0],
+                opacity: [0, 1]
+            })
+            .add({
+                targets: '.help__cards--3',
+                translateY: [100, 0],
+                opacity: [0, 1]
+            })
+            .add({
+                targets: '.help__btn-more',
+                translateX: [100, 0],
+                opacity: [0, 1]
+            })
+            .add({
+                targets: '.help__advantages--dialog',
+                scale: [0, 1.3, 1],
+                rotate: [180, 0],
+                opacity: [0, 1]
+            })
+            .add({
+                targets: '.help__advantages--advantage',
+                scale: [0, 1.3, 1],
+                rotate: [180, 0],
+                opacity: [0, 1]
+            })
+            .add({
+                targets: '.help__two-cards__card',
+                translateY: [100, 0],
+                opacity: [0, 1]
+            })
+            
+        };
+
+        return {
+            onChangeWaypoint
+        }
+    }
 })
 </script>
 

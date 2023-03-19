@@ -1,31 +1,85 @@
 <template>
-    <div class="download">
-        <p class="download__title">Project Management App</p>
-        <p class="download__subtitle">Download our app and start your free trail to get started today!</p>
-        <p class="download__subinfo">End-to-end payments and financial management in a single solution.</p>
-        <div class="download__playmarket-playstore">
-            <Button icon :bgColor="'#5D5FEF'" circled color="white" :label="'Playstore'">
-                <template #icon>
-                    <img :src="require('@/assets/svgs/PlayStore.svg')" alt=""/>
-                </template>
-            </Button>
-            <Button icon :bgColor="'#0F0E2C'" circled color="white" :label="'Google Play'">
-                <template #icon>
-                    <img :src="require('@/assets/svgs/GooglePlay.svg')" alt=""/>
-                </template>
-            </Button>
+    <Waypoint @change="onChangeWaypoint">
+        <div class="download">
+            <p ref="titleRef" class="download__title">Project Management App</p>
+            <p ref="subtitleRef" class="download__subtitle">Download our app and start your free trail to get started today!</p>
+            <p ref="subinfoRef" class="download__subinfo">End-to-end payments and financial management in a single solution.</p>
+            <div class="download__playmarket-playstore">
+                <Button icon :bgColor="'#5D5FEF'" circled color="white" :label="'Playstore'">
+                    <template #icon>
+                        <img :src="require('@/assets/svgs/PlayStore.svg')" alt=""/>
+                    </template>
+                </Button>
+                <Button icon :bgColor="'#0F0E2C'" circled color="white" :label="'Google Play'">
+                    <template #icon>
+                        <img :src="require('@/assets/svgs/GooglePlay.svg')" alt=""/>
+                    </template>
+                </Button>
+            </div>
         </div>
-    </div>
+    </Waypoint>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import anime from "animejs";
+import { defineComponent, onMounted, Ref, ref } from "vue";
 import Button from "./components/buttons/Button.vue";
-
     export default defineComponent({
         components: { 
             Button 
         },
+        setup() {
+            const titleRef: Ref = ref<HTMLElement>()!;
+            const subtitleRef: Ref = ref<HTMLElement>()!;
+            const subinfoRef: Ref = ref<HTMLElement>()!;
+            
+            const onChangeWaypoint = () => {
+                console.log(titleRef);
+                titleRef.value.innerHTML = titleRef.value?.textContent?.replace(/\S/g, "<span>$&</span>");
+                subtitleRef.value.innerHTML = subtitleRef.value?.textContent?.replace(/\S/g, "<span>$&</span>");
+                subinfoRef.value.innerHTML = subinfoRef.value?.textContent?.replace(/\S/g, "<span>$&</span>");
+
+                const tl = anime.timeline();
+
+
+                tl.add({
+                    targets: titleRef.value.children,
+                    opacity: [0, 1],
+                    translateX: [-60, 0],
+                    delay: anime.stagger(10)
+                });
+
+
+                tl.add({
+                    targets: subtitleRef.value.children,
+                    opacity: [0, 1],
+                    translateX: [-60, 0],
+                    delay: anime.stagger(10)
+                })
+
+
+                tl.add({
+                    targets: subinfoRef.value.children,
+                    opacity: [0, 1],
+                    translateX: [-60, 0],
+                    delay: anime.stagger(10)
+                })
+
+                tl.add({
+                    targets: '.download__playmarket-playstore',
+                    opacity: [0, 1],
+                    translateY: [60, 0],
+                    
+                })
+            }
+            return {
+                titleRef,
+                subtitleRef,
+                subinfoRef,
+
+                onChangeWaypoint
+            }
+        }
     })
 </script>
 
