@@ -96,7 +96,6 @@ export default {
                 left: '80%',
                 opacity: .25
             }).addTo(controller);
-
             scene.value = new ScrollMagic.Scene({
                 triggerElement: section3Ref.value,
                 duration: 300
