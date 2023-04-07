@@ -34,7 +34,6 @@ import Button from "./components/buttons/Button.vue";
             const subinfoRef: Ref = ref<HTMLElement>()!;
             
             const onChangeWaypoint = () => {
-                console.log(titleRef);
                 titleRef.value.innerHTML = titleRef.value?.textContent?.replace(/\S/g, "<span>$&</span>");
                 subtitleRef.value.innerHTML = subtitleRef.value?.textContent?.replace(/\S/g, "<span>$&</span>");
                 subinfoRef.value.innerHTML = subinfoRef.value?.textContent?.replace(/\S/g, "<span>$&</span>");
@@ -120,7 +119,7 @@ import Button from "./components/buttons/Button.vue";
         }
     }
 
-    @media screen and (max-width: 36rem) {
+    @media screen and (max-width: 60rem) {
         .download {
             padding: 1rem 2rem;
         }

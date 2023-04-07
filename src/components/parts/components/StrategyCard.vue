@@ -60,7 +60,7 @@ import { defineComponent } from "vue";
         
     }
 
-    @media screen and (max-width: 36rem) {
+    @media screen and (max-width: 60rem) {
         .strategy-card {
             position: initial;
             &__stage {

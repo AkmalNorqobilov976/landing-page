@@ -139,7 +139,7 @@ export default {
         }
     }
 
-    @media screen and (max-width: 36rem) {
+    @media screen and (max-width: 60rem) {
         .register {
             padding: 2rem;
             display: flex;

@@ -369,7 +369,7 @@ export default defineComponent({
         }
     }
 
-    @media screen and (max-width: 36rem) {
+    @media screen and (max-width: 60rem) {
         .help__header {
             margin: 2rem;
             padding: 2rem;

@@ -251,7 +251,7 @@ export default {
     }
  }
 
- @media screen and (max-width: 36rem) {
+ @media screen and (max-width: 60rem) {
     .footer {
         gap: 3rem;
         padding: 2rem;

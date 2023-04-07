@@ -158,7 +158,7 @@ import BlogList from "../Lists/BlogList.vue";
     }
 }
 
-@media screen and (max-width: 36rem) {
+@media screen and (max-width: 60rem) {
     .blog-post {
         display: flex;
         flex-direction: column;
